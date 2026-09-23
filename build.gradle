@@ -15,8 +15,20 @@ java {
     }
 }
 
+gradlePlugin {
+    plugins {
+        licenseCheck {
+            id = 'com.example.gsb.license-check'
+            implementationClass = 'com.example.gsb.licensecheck.LicenseCheckPlugin'
+            displayName = 'Dependency License Check'
+            description = 'Collects runtime dependency licenses and enforces allow/deny rules with text and JSON reports.'
+        }
+    }
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation gradleTestKit()
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
